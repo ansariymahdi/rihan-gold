@@ -32,8 +32,10 @@
       "@styles/*": ["src/styles/*"],
       "@market":["src/components/market"],
       "@market/*": ["src/components/market/*"],
-      "@icons": ["src/icons/*"],
-      "@icons/*": ["src/icons/*"]
+      "@icons": ["src/icons"],
+      "@icons/*": ["src/icons/*"],
+      "@containers": ["src/containers"],
+      "@containers/*": ["src/containers/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

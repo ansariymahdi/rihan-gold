@@ -734,3 +734,89 @@ input[type="number"] {
 
 
 }
+
+#content {
+  overflow: hidden;
+}
+
+#content.full {
+  float: none;
+  width: auto;
+}
+
+.products {
+  padding-bottom: 1px;
+  overflow: hidden;
+}
+// .price {
+//   position: relative;
+//   background-image: linear-gradient(
+//       to right,
+//       rgba(24, 22, 22, 0.42),
+//       rgba(10, 10, 10, 0.7)
+//     ),
+//     url(./assets/images/rate_bg.png);
+//   -webkit-background-image: linear-gradient(
+//       to right,
+//       rgba(24, 22, 22, 0.42),
+//       rgba(10, 10, 10, 0.7)
+//     ),
+//     url(./assets/images/rate_bg.png);
+//   /* background-attachment: fixed; */
+//   /* -webkit-background-size: cover; */
+//   /* background-size: cover; */
+//   color: #fff;
+//   /* padding: 10px 0; */
+// }
+.products h4 {
+  color: #939597;
+
+  font-size: 24px;
+  padding: 0 0 22px;
+}
+
+.products .btn-add {
+  height: 40px;
+  background-color: #cecece;
+  display: block;
+  color: #656567;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 40px;
+  margin: 0 32px;
+}
+
+.products .btn-add:hover {
+  background: #656567;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.products h3 {
+  color: #656567;
+  font-family: IRANYEKAN;
+  /* font-size: 12px; */
+  font-weight: 600;
+  /* margin: 22px 0 0; */
+}
+
+.products article {
+  /* width: 17rem; */
+  /* padding: 18px 0 0; */
+  /* height: 405px; */
+  /* border: 1px solid #d3d3d3; */
+  background-color: #fff;
+  /* text-align: center; */
+  float: left;
+  margin: 0 0 -1px -1px;
+}
+
+.img-product{
+  height: 300px;
+  width: 100%;
+}

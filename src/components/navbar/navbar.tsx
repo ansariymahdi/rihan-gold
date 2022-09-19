@@ -1,8 +1,10 @@
 import icons from "@icons/index";
 import {mediaQueries} from "@styles/theme/theme";
 import useWindowScroll from "@utils/hooks/useWindowScroll";
+import {VStack} from "@utils/utils";
 import NextLink from "next/link";
 import React, {SVGProps, useRef, useEffect, useState} from "react";
+import Strings from "src/common/Strings";
 import styled, {css} from "styled-components";
 
 interface NavbarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,6 +17,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const navListRef = useRef<HTMLUListElement>(null);
   const {isTransparent} = useChangeBgOnScroll(isLandingPage);
+
+  console.log(isTransparent);
 
   const items: {
     label: string;
@@ -29,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     },
     {
       label: "محصولات",
-      link: "/",
+      link: "/products",
       //   icon: icons.Home,
     },
     {
@@ -47,7 +51,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     {
       label: "دعوت دوستان",
       link: "/invite-friends",
-      icon: icons.ProfileReferral,
     },
   ];
   return (
@@ -56,17 +59,23 @@ export const Navbar: React.FC<NavbarProps> = ({
         <NavContainer>
           <NextLink href="/" passHref>
             <LogoLink>
-              <icons.GoldLogo height={180} width={150} />
+              <LogoIcon>
+                <icons.GoldLogo height={30} width={90} />
+              </LogoIcon>
+              <VStack>
+                <div>گالری طلا و جواهر ریحان</div>
+                <div>{Strings.app_description}</div>
+              </VStack>
             </LogoLink>
           </NextLink>
           <NavList ref={navListRef} isOpen={true}>
             <NavListHeader>
               {/* <HamburgerIcon onClick={toggleNavList} /> */}
-              <NextLink href="/" passHref>
+              {/* <NextLink href="/" passHref>
                 <LogoLink>
                   <icons.GoldLogo height={150} width={150} />
                 </LogoLink>
-              </NextLink>
+              </NextLink> */}
             </NavListHeader>
             {items.map(({label, link, icon: Icon, openNewTab}, index) => (
               <NextLink key={`${index}`} href={link} passHref>
@@ -95,7 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const Wrapper = styled.nav<{isTransparent: boolean}>`
-  --navbar-height: 88px;
+  --navbar-height: 102px;
   width: 100%;
   height: var(--navbar-height);
 
@@ -104,9 +113,10 @@ const Wrapper = styled.nav<{isTransparent: boolean}>`
   align-items: center;
 
   position: sticky;
+  /* top: 50px; */
+
   inset: 0 0 auto 0;
   transition: all 0.3s linear, border-bottom 1s linear;
-  background-color: transparent;
 
   ${({theme, isTransparent}) =>
     isTransparent
@@ -142,8 +152,26 @@ const Container = styled.div`
 const LogoLink = styled.a`
   /* Extra 20px for 10px padding on each side */
   padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  background: #f2f2f2;
+  left: 33px;
+  position: relative;
+  padding-bottom: 0px;
+  padding: 8px;
+  border-radius: 10px;
 `;
 
+const LogoIcon = styled.div`
+  padding-top: 1rem;
+  padding-right: 0.5rem;
+  svg {
+    scale: 5;
+    padding-left: 0.5rem;
+  }
+`;
 const NavContainer = styled.div`
   display: flex;
   align-items: center;
@@ -259,14 +287,14 @@ const NavItem = styled.a`
   }
 `;
 
-const useChangeBgOnScroll = (isLandingPage: boolean) => {
+const useChangeBgOnScroll = (isLandingPage?: boolean) => {
   const [isTransparent, setIsTransparent] = useState(isLandingPage);
 
   const {y} = useWindowScroll();
 
   useEffect(() => {
     if (isLandingPage) {
-      if (y > 70) {
+      if (y > 10) {
         setIsTransparent(false);
       } else {
         setIsTransparent(true);

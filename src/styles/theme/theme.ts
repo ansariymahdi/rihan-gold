@@ -67,7 +67,7 @@ export const newTheme = {
     4: "#494D4D",
   },
   primaryColors: {
-    primary: "#009B87",
+    primary: "#063137",
     accent: "#BEA064",
   },
   neutralColors: {
