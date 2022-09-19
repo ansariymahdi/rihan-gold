@@ -96,8 +96,7 @@ const App = ({Component, pageProps}) => {
         {/* <MuiThemeProvider theme={theme}> */}
         <GlobalStyle />
         {/* </MuiThemeProvider> */}
-
-        {getLayout(<Component {...pageProps} />)}
+        <Main>{getLayout(<Component {...pageProps} />)}</Main>
 
         {/* {mdUp || router.query.app === "true" ? null : (
               <MobileGoftinoWidget />
@@ -109,3 +108,10 @@ const App = ({Component, pageProps}) => {
 };
 
 export default App;
+const Main = styled.div`
+  /* Extra 20px for 10px padding on each side */
+  width: 100vw;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+`;

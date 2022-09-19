@@ -1,9 +1,9 @@
-import GoldLogo from "./logo/GoldLogo"
-
-
+import GoldLogo from "./logo/GoldLogo";
+import NotFoundIcon from "./errors/NotFoundIcon";
 
 export const icons = {
-    GoldLogo
-}
+  GoldLogo,
+  NotFoundIcon,
+};
 
 export default icons;
