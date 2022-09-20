@@ -1,7 +1,11 @@
 import {Navbar} from "@components/navbar/navbar";
 import {css} from "styled-components";
+import React from "react";
 
-export const Layout: React.FC = ({children}) => {
+interface Props {
+  children: React.ReactNode;
+}
+export const Layout: React.FC<Props> = ({children}) => {
   return (
     <div
       css={css`
@@ -12,7 +16,7 @@ export const Layout: React.FC = ({children}) => {
         background-size: cover; */
       `}
     >
-      <Navbar />
+      <Navbar isLandingPage={false} />
       {children}
     </div>
   );

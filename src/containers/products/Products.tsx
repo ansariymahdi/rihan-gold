@@ -39,7 +39,7 @@ const Products: NextPage = () => {
               {data?.map((item, index) => {
                 return (
                   <ProductJewelryItemList
-                    onClickHandler={() => goToDetailProduct(item)}
+                    // onClickHandler={() => goToDetailProduct(item)}
                     item={item}
                     key={`${index}`}
                   />

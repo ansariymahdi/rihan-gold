@@ -1,10 +1,13 @@
-import {SpaceBetween, VStack, Flex} from "@utils/utils";
-import {mediaQueries} from "@styles/theme/theme";
-import {cloneElement, useEffect, useState} from "react";
-import styled, {css} from "styled-components";
 import {Navbar} from "@components/navbar/navbar";
+import {mediaQueries} from "@styles/theme/theme";
+import {Flex, VStack} from "@utils/utils";
+import styled from "styled-components";
+import React, {useState} from "react";
 
-export const Layout = ({children}) => {
+interface Props {
+  children: React.ReactNode;
+}
+export const Layout: React.FC<Props> = ({children}) => {
   const [changeTitle, setChangeTitle] = useState("");
   // useAuthenticated();
 
@@ -21,7 +24,7 @@ export const Layout = ({children}) => {
                 : "کیف پول تتری | تترلند"
           }
         />*/}
-      <Navbar />
+      <Navbar isLandingPage={false} />
 
       <Container>{children}</Container>
     </>

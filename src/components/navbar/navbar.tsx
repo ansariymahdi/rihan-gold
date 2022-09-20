@@ -8,11 +8,11 @@ import Strings from "src/common/Strings";
 import styled, {css} from "styled-components";
 
 interface NavbarProps extends React.HTMLAttributes<HTMLDivElement> {
-  isLandingPage?: boolean;
+  isLandingPage: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  isLandingPage,
+  isLandingPage = false,
   ...restProps
 }) => {
   const navListRef = useRef<HTMLUListElement>(null);
@@ -39,13 +39,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     {
       label: "بلاگ",
       link: "https://blog.tetherland.com/",
-      icon: icons.Notebook,
       openNewTab: true,
     },
     {
       label: "سوالات متداول",
       link: "/FAQ",
-      icon: icons.Book,
     },
 
     {
@@ -287,8 +285,8 @@ const NavItem = styled.a`
   }
 `;
 
-const useChangeBgOnScroll = (isLandingPage?: boolean) => {
-  const [isTransparent, setIsTransparent] = useState(isLandingPage);
+const useChangeBgOnScroll = (isLandingPage: boolean) => {
+  const [isTransparent, setIsTransparent] = useState<boolean>(isLandingPage);
 
   const {y} = useWindowScroll();
 

@@ -6,7 +6,7 @@ import {SimpleLabel} from "../labels/SimpleLabel";
 
 const ProductJewelryItemList: React.FC<{
   item: any;
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
 }> = (props) => {
   const {item, onClickHandler} = props;
   const {fileUrl} = item;
@@ -29,7 +29,7 @@ const ProductJewelryItemList: React.FC<{
         </div>
         <div className="divider1 mx-8"></div>
         <div className="flex flex-row   mx-8">
-          <SimpleLabel variant="tertiary">{String.material}</SimpleLabel>
+          <SimpleLabel variant="tertiary">{Strings.material}</SimpleLabel>
           <div className="px-8  py-2 text-xs ">طلای 24 عیار</div>
         </div>
         <div className="flex flex-row  ">

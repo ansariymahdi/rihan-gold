@@ -24,7 +24,10 @@ import "../styles/globals.css";
 //   },
 // });
 
-const App = ({Component, pageProps}) => {
+const App: React.FC<{
+  Component: any;
+  pageProps: any;
+}> = ({Component, pageProps}) => {
   const router = useRouter();
   // const mdUp = useMediaQuery(mediaQueries.mdUp);
 
@@ -32,7 +35,7 @@ const App = ({Component, pageProps}) => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+      // jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
   // useEffect(() => {
@@ -68,7 +71,7 @@ const App = ({Component, pageProps}) => {
   //     window.removeEventListener("goftino_ready", removeGoftinoWidget);
   // }, [mdUp]);
 
-  const getLayout = Component.getLayout || ((page) => page);
+  const getLayout = Component.getLayout || ((page: any) => page);
 
   return (
     <>
