@@ -5,11 +5,15 @@ import {toMobileNoForm} from "../utils/main";
 import Router from "next/router";
 import Image from "next/image";
 
-const NextImage = (props) =>
+const NextImage = (props: any) =>
   typeof window === "undefined" ? <></> : <Image {...props} />;
 export {NextImage as Image};
 
-export const To = ({children, to, ...props}) => (
+export const To: React.FC<{
+  children: React.ReactNode;
+  to: any;
+  props: any;
+}> = ({children, to, ...props}) => (
   <span onClick={() => to && Router.push(to)} {...props}>
     {children}
   </span>
@@ -420,28 +424,34 @@ export const NormalText = styled.span`
 
   font-size: 14px;
 `;
-export const Warning = ({message = "", children, ...props}) =>
-  message || children ? (
-    <Inform type="error" message={message || children} {...props} />
-  ) : (
-    <Inform
-      type="error"
-      message={message || children}
-      style={{visibility: "hidden"}}
-      {...props}
-    />
-  );
-export const TextCenter = styled(Text)`
-  text-align: center;
-  display: block;
-`;
-export const Alarm: React.FC<any> = ({children, ...props}) => (
-  <Inform message={children} {...props} />
-);
 
-export const PhoneNumber = ({children}) => (
-  <span>{toMobileNoForm(children)}</span>
-);
+interface AddTodoActionCreator {
+  message?: string | undefined;
+  children?: any;
+  props?: any[];
+}
+// export const Warning = (message: any = "", children: any, ...props: any[]) =>
+//   message || children ? (
+//     <Inform type="error" message={message || children} {...props} />
+//   ) : (
+//     <Inform
+//       type="error"
+//       message={message || children}
+//       style={{visibility: "hidden"}}
+//       {...props}
+//     />
+//   );
+// export const TextCenter = styled(Text)`
+//   text-align: center;
+//   display: block;
+// `;
+// export const Alarm: React.FC<any> = ({children, ...props}) => (
+//   <Inform message={children} {...props} />
+// );
+
+// export const PhoneNumber = ({children}) => (
+//   <span>{toMobileNoForm(children)}</span>
+// );
 
 // export const Collapse = ({
 //   icon,
@@ -477,27 +487,27 @@ export const PhoneNumber = ({children}) => (
 //   );
 // };
 
-const Inform = ({message, type, ...props}) => {
-  const WarningCon = styled.p`
-    ${({theme}) => theme.setByDir.TextAlign("right")}
-    font-size: 0.8rem;
-    color: ${({theme}) =>
-      type === "error" ? theme.typography.error : theme.components.alarm};
-    margin-top: 6px;
-    ${({theme}) => theme.centerY}
+// const Inform = ({message, type, ...props}) => {
+//   const WarningCon = styled.p`
+//     ${({theme}) => theme.setByDir.TextAlign("right")}
+//     font-size: 0.8rem;
+//     color: ${({theme}) =>
+//       type === "error" ? theme.typography.error : theme.components.alarm};
+//     margin-top: 6px;
+//     ${({theme}) => theme.centerY}
 
-    svg {
-      ${({theme}) => theme.setByDir.marginLeft("8px")}
-    }
-  `;
+//     svg {
+//       ${({theme}) => theme.setByDir.marginLeft("8px")}
+//     }
+//   `;
 
-  return (
-    <WarningCon {...props}>
-      {/* <icons.Info color={type == "error" ? "#db1d3e" : "#f1750a"} /> */}
-      {message}
-    </WarningCon>
-  );
-};
+//   return (
+//     <WarningCon {...props}>
+//       {/* <icons.Info color={type == "error" ? "#db1d3e" : "#f1750a"} /> */}
+//       {message}
+//     </WarningCon>
+//   );
+// };
 
 export const Cancel = styled(Center)`
   padding: 2px 6px;

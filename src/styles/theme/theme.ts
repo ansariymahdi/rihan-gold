@@ -287,8 +287,8 @@ export const utils = {
   border: `1px solid ${newTheme.bgColors[2]}`,
 };
 
-const setByDir = (dir) => {
-  const marginRight = (val) => {
+const setByDir = (dir:string) => {
+  const marginRight = (val:any) => {
     return dir == "rtl"
       ? css`
           margin-right: ${val};
@@ -298,7 +298,7 @@ const setByDir = (dir) => {
         `;
   };
 
-  const marginLeft = (val) => {
+  const marginLeft = (val:any) => {
     return dir == "rtl"
       ? css`
           margin-left: ${val};
@@ -308,7 +308,7 @@ const setByDir = (dir) => {
         `;
   };
 
-  const paddingRight = (val) => {
+  const paddingRight = (val:any) => {
     return dir == "rtl"
       ? css`
           padding-right: ${val};
@@ -318,7 +318,7 @@ const setByDir = (dir) => {
         `;
   };
 
-  const paddingLeft = (val) => {
+  const paddingLeft =  (val:any) => {
     return dir == "rtl"
       ? css`
           padding-left: ${val};
@@ -328,7 +328,7 @@ const setByDir = (dir) => {
         `;
   };
 
-  const right = (val) => {
+  const right = (val:any)=> {
     return dir == "rtl"
       ? css`
           right: ${val};
@@ -338,7 +338,7 @@ const setByDir = (dir) => {
         `;
   };
 
-  const left = (val) => {
+  const left =  (val:any) => {
     return dir == "rtl"
       ? css`
           left: ${val};
@@ -348,7 +348,7 @@ const setByDir = (dir) => {
         `;
   };
 
-  const translateX = (val, others = "") => {
+  const translateX = (val:any, others = "") => {
     const input = `${val}`.split(/([0-9]+)/);
     return dir == "rtl"
       ? css`
@@ -363,7 +363,7 @@ const setByDir = (dir) => {
         `;
   };
 
-  const TextAlign = (val) => {
+  const TextAlign = (val:any) => {
     return dir == "rtl"
       ? css`
           text-align: ${val == "right" ? "right" : "left"};

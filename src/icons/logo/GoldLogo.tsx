@@ -1,13 +1,10 @@
-import * as React from "react"
-import { SVGProps } from "react"
+import * as React from "react";
+import {SVGProps} from "react";
 
 const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 595.28 841.89"
-    style={{
-      enableBackground: "new 0 0 595.28 841.89",
-    }}
     xmlSpace="preserve"
     width="1em"
     height="1em"
@@ -18,6 +15,6 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
       fill="#c4a66b"
     />
   </svg>
-)
+);
 
-export default SvgComponent
+export default SvgComponent;

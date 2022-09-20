@@ -1,15 +1,22 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
+import React from "react";
 
+export type LabelProps = {
+  children: React.ReactNode;
 
-
-export type LabelProps = JSX.IntrinsicElements["label"] & {
-  variant?: "primary" | "red" | "blue" | "netural" | "tertiary" | "secondary" | "warning";
+  variant?:
+    | "primary"
+    | "red"
+    | "blue"
+    | "netural"
+    | "tertiary"
+    | "secondary"
+    | "warning";
   size?: "sm" | "md" | "lg" | "tiny" | string;
   cursor?: "pointer" | "auto";
   weight?: "500" | "600" | "700";
   justifyContent?: "center" | "end" | "start";
-
-}
+};
 export const SimpleLabel: React.FC<LabelProps> = ({
   children,
   variant = "netural",
@@ -42,72 +49,66 @@ const StyledLabel = styled.div<LabelProps>`
   transition: all 0.3s ease-in-out;
   font-size: 16px;
   border: none;
-  
-  ${({ justifyContent }) => css`
-  justify-content: ${justifyContent};
+
+  ${({justifyContent}) => css`
+    justify-content: ${justifyContent};
   `}
-  
-  ${({ theme }) => css`
+
+  ${({theme}) => css`
     border-radius: ${theme.borderRadius};
   `}
-  ${({ cursor }) => css`
-       cursor: ${cursor};
+  ${({cursor}) => css`
+    cursor: ${cursor};
   `}
-  ${({ weight }) => css`
-       font-weight: ${weight};
+  ${({weight}) => css`
+    font-weight: ${weight};
   `}
-  ${({ size }) =>
+  ${({size}) =>
     size === "lg"
       ? css`
-            font-size: 16px;
+          font-size: 16px;
         `
       : size === "md"
-        ? css`
-          
+      ? css`
           font-size: 14px;
-        `: size === "sm"
-          ? css`
-          
+        `
+      : size === "sm"
+      ? css`
           font-size: 12px;
         `
-
-          : size === "tiny"
-            ? css`
-          
+      : size === "tiny"
+      ? css`
           font-size: 11px;
         `
-
-
-            : css`
-                    font-size: ${size};
-
+      : css`
+          font-size: ${size};
         `}
-  ${({ theme, variant }) =>
+  ${({theme, variant}) =>
     variant === "red"
       ? css`
           color: ${theme.semanticColors.danger};
-          
         `
       : variant === "blue"
-        ? css`
+      ? css`
           color: ${theme.semanticColors.info};
         `
-        : variant === "tertiary"
-          ? css`
+      : variant === "tertiary"
+      ? css`
           color: ${theme.neutralColors.tertiary};
         `
-          : variant === "netural"
-            ? css`
+      : variant === "netural"
+      ? css`
           color: ${theme.neutralColors.primary};
-        `: variant === "secondary"
-              ? css`
+        `
+      : variant === "secondary"
+      ? css`
           color: ${theme.neutralColors.secondary};
-        `: variant === "warning"
-                ? css`
+        `
+      : variant === "warning"
+      ? css`
           color: ${theme.semanticColors.warning};
         `
-                : css`
+      : css`
           color: ${theme.primaryColors.primary};
-       
         `}
 `;

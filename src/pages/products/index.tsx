@@ -14,13 +14,13 @@ const ProductLayout = () => {
   ];
   return (
     <>
-      <Head
+      {/* <Head
         title=" ریحان گل"
         description="برای خرید تتر د."
         keywords={`''`}
         url="https:/
         /"
-      />
+      /> */}
     </>
   );
 };
