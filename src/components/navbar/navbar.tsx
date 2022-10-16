@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     },
     {
       label: "بلاگ",
-      link: "https://blog.tetherland.com/",
+      link: "",
       openNewTab: true,
     },
     {
